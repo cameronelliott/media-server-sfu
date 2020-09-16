@@ -42,9 +42,11 @@ var Capabilities = map[string]*sdp.Capability{
 		Codecs: []string{"h264"},
 		Rtx:    true,
 		Rtcpfbs: []*sdp.RtcpFeedback{
-			&sdp.RtcpFeedback{
-				ID: "goog-remb",
-			},
+			// notedit had removed this in later iteration: raw-rtp-input
+			// so we follow
+			// &sdp.RtcpFeedback{
+			// 	ID: "goog-remb",
+			// },
 			&sdp.RtcpFeedback{
 				ID: "transport-cc",
 			},
