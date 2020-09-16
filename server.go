@@ -34,7 +34,7 @@ var upGrader = websocket.Upgrader{
 	},
 }
 
-var Capabilities = map[string]*sdp.Capability{
+var capabilities = map[string]*sdp.Capability{
 	"audio": &sdp.Capability{
 		Codecs: []string{"opus"},
 	},
@@ -99,7 +99,7 @@ func channel(c *gin.Context) {
 			answer := offer.Answer(transport.GetLocalICEInfo(),
 				transport.GetLocalDTLSInfo(),
 				endpoint.GetLocalCandidates(),
-				Capabilities)
+				capabilities)
 
 			// streamer := mediaserver.NewStreamer()
 			// videoSession := streamer.CreateSession(true, "127.0.0.1", 5000, offer.GetMedia("video"))
